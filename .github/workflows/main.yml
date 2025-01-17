@@ -1,0 +1,24 @@
+name: Install Node.js
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  setup-node:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16' # Specify the Node.js version you want to install
+
+      - name: Verify Node.js Installation
+        run: |
+          node --version
+          npm --version
